@@ -17,14 +17,20 @@ const contentfulConfig = {
 // CONTENTFUL_PREVIEW_ACCESS_TOKEN should map to your
 // Content Preview API token
 //
+
 // For more information around the Preview API check out the documentation at
 // https://www.contentful.com/developers/docs/references/content-preview-api/#/reference/spaces/space/get-a-space/console/js
 //
 // To change back to the normal CDA, remove the CONTENTFUL_HOST variable from your environment.
-if (process.env.CONTENTFUL_HOST) {
-  contentfulConfig.host = process.env.CONTENTFUL_HOST;
-  contentfulConfig.accessToken = process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN;
+if (process.env.GATSBY_PREVIEW === true && process.env.CONTENTFUL_PREVIEW_TOKEN) {
+  console.log("preview");
+  contentfulConfig.host = `preview.contentful.com`
+  contentfulConfig.accessToken = process.env.CONTENTFUL_PREVIEW_TOKEN
 }
+// if (process.env.CONTENTFUL_HOST) {
+//   contentfulConfig.host = process.env.CONTENTFUL_HOST;
+//   contentfulConfig.accessToken = process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN;
+// }
 
 const { spaceId, accessToken } = contentfulConfig;
 
