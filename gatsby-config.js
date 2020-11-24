@@ -7,6 +7,7 @@ const contentfulConfig = {
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 }
 
+// Preview content
 if (process.env.GATSBY_PREVIEW === "true" && process.env.CONTENTFUL_PREVIEW_TOKEN) {
   contentfulConfig.host = `preview.contentful.com`
   contentfulConfig.accessToken = process.env.CONTENTFUL_PREVIEW_TOKEN
