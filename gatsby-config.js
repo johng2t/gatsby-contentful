@@ -24,6 +24,9 @@ if (!spaceId || !accessToken) {
 module.exports = {
   siteMetadata: {
     title: "Gatsby Contentful starter",
+    description: "Default gatsby contentful starter",
+    image: "https://via.placeholder.com/150",
+    url: "https://www.contentful.com" 
   },
   pathPrefix: "/gatsby-contentful-starter",
   plugins: [
@@ -34,6 +37,23 @@ module.exports = {
     {
       resolve: "gatsby-source-contentful",
       options: contentfulConfig,
+    },
+    {
+      resolve: "gatsby-plugin-hotjar-tracking",
+      options: {
+        includeInDevelopment: false,
+        id: 2146676,
+        sv: 6
+      }
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 256016917,
+        anonymize: false,
+        respectDNT: true,
+        pageTransitionDelay: 700,
+      },
     },
   ],
 };
